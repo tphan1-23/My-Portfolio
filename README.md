@@ -2,7 +2,7 @@
 
 Welcome to the repository for my personal portfolio website! This project serves as a digital resume and a central hub to showcase my skills, featured projects, and my journey as an aspiring software engineer.
 
-**🔗 [View Live Website]( )** 
+**🔗 [View Live Website](https://tphan1-23.github.io/My-Portfolio/)** 
 
 ---
 
