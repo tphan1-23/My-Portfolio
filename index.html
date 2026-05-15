@@ -1555,6 +1555,7 @@
       observer.observe(el);
     });
 
+    /*
     // ── Contact form ──
     function handleSubmit(e) {
       e.preventDefault();
@@ -1580,6 +1581,65 @@
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 4000);
     }
+    */
+
+    // ── Contact form ──
+    async function handleSubmit(e) {
+      e.preventDefault(); // Prevents the default page reload
+      
+      const form = e.target;
+      const btn = document.getElementById('submit-btn');
+      const btnText = document.getElementById('btn-text');
+      const icon = document.getElementById('send-icon');
+
+      // Change UI to show it's sending
+      btn.disabled = true;
+      btnText.textContent = 'Sending...';
+      if (icon) icon.style.display = 'none';
+
+      // Package the form data
+      const data = new FormData(form);
+
+      try {
+        // Send the data to Formspree
+        const response = await fetch("https://formspree.io/f/xzdongzo", {
+          method: "POST",
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        // Check if the send was successful
+        if (response.ok) {
+          form.reset(); // Clear the form fields
+          showToast();  // Show your success animation!
+        } else {
+          // If Formspree returns an error
+          const errorData = await response.json();
+          if (Object.hasOwn(errorData, 'errors')) {
+            alert(errorData["errors"].map(error => error["message"]).join(", "));
+          } else {
+            alert("Oops! There was a problem submitting your form");
+          }
+        }
+      } catch (error) {
+        // If there is a network error
+        alert("Oops! There was a problem submitting your form");
+        
+        /*
+        form.reset(); // Clear the form fields
+        showToast();  // Show success animation!
+        */
+
+      } finally {
+        // Revert the button back to its original state so they can use it again
+        btn.disabled = false;
+        btnText.textContent = 'Send Message';
+        if (icon) icon.style.display = '';
+      }
+    }
+
   </script>
 </body>
 </html>
