@@ -31,6 +31,7 @@ This project was built from scratch without any heavy frameworks to demonstrate 
 A Python console Tic-Tac-Toe game featuring an unbeatable AI. By utilizing the Minimax Algorithm, the computer anticipates all possible future board states to make sure it either wins or forces a draw against the human player. The script also handles turn randomization and maps the 3x3 grid to basic keypad inputs.
 
 ### 2. Relational Movie Database Architecture
+In this collaborative project, I co-designed a robust Relational Movie Database Architecture using composite keys and strategic junction tables. I built secure data insertion pipelines to prevent constraint violations, authored optimized SQL queries for advanced analytics, and rigorously tested structural edge cases to eliminate schema vulnerabilities and maintain 100% relational integrity.
 
 ### 3. Personal Portfolio (This Project!)
 
